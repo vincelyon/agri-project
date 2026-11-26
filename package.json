@@ -1,0 +1,39 @@
+{
+  "name": "agri-input-stock-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web-based inventory management for agricultural inputs (Next.js, Prisma, PostgreSQL)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:seed": "node --env-file-if-exists=.env prisma/seed.js",
+    "db:reset": "prisma migrate reset --force",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:e2e": "node --env-file=.env tests/e2e/api-smoke.mjs",
+    "db:local": "bash scripts/local-postgres.sh"
+  },
+  "prisma": {
+    "seed": "node --env-file-if-exists=.env prisma/seed.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "bcryptjs": "^3.0.3",
+    "jose": "^6.2.18",
+    "next": "^15.5.29",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "postcss": "^8.5.33",
+    "prisma": "^6.19.3",
+    "tailwindcss": "^4.3.5",
+    "vitest": "^5.1.1"
+  }
+}
