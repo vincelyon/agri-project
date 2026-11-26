@@ -235,7 +235,7 @@
 
 /* ── Form popup dialogs ─────────────────────────────────────────────────── */
 /* Closed <dialog> must stay display:none — a bare `display: grid` overrides the UA rule and leaves the form stacked on the page. */
-.form-modal:not([open]) {
+.form-modal:not([open]):not(.form-modal--standalone) {
   display: none;
 }
 
@@ -271,7 +271,7 @@
   display: block;
 }
 
-.form-modal--standalone {
+.form-modal.form-modal--standalone {
   position: relative;
   z-index: 1;
   display: flex;
